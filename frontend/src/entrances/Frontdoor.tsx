@@ -23,7 +23,7 @@ const Frontdoor: React.FC = () => {
     const handleUpload = (file: File) => {
         const fileName = file.name;
         setImage(file);
-        setUploadedImages((prevImages) => [...prevImages, { name: fileName, file }]);
+        setUploadedImages([{ name: fileName, file }]);
         setSelectedImage(fileName);
     };
 
