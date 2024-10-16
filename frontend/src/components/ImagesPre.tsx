@@ -41,7 +41,6 @@ const ImagePre: React.FC<ImagePreProps> = ({ onUpload, onSelect, selectedImage, 
                             justifyContent: 'center',
                             alignItems: 'center',
                             position: 'relative',
-                            cursor: 'pointer',
                             overflow: 'hidden',
                         }}
                     >

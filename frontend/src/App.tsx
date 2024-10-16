@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Frontdoor from './entrances/Frontdoor';
 import HouseButtons from "./components/HouseButtons";
+import Backdoor from "./entrances/Backdoor";
 
 const App: React.FC = () => {
 
@@ -21,7 +22,7 @@ const App: React.FC = () => {
                 <Routes>
                     <Route path="/" element={<HouseButtons />} />
                     <Route path="/frontdoor" element={<Frontdoor />} />
-                    <Route path="/backdoor" element={<Frontdoor />} />
+                    <Route path="/backdoor" element={<Backdoor />} />
                 </Routes>
             </div>
         </Router>

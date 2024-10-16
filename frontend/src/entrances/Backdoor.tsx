@@ -9,10 +9,10 @@ import { Typography } from "@mui/joy";
 import ImagePre from "../components/ImagesPre";
 import { useImageHandlers } from '../components/handlers';
 
-import recognizedImage from './images/grundriss_frontdoor_open.jpg';
-import unrecognizedImage from './images/grundriss_frontdoor_closed.jpg';
+import recognizedImage from './images/grundriss_backdoor_open.jpg';
+import unrecognizedImage from './images/grundriss_backdoor_closed.jpg';
 
-const Frontdoor: React.FC = () => {
+const Backdoor: React.FC = () => {
     const navigate = useNavigate();
     const {
         image,
@@ -43,7 +43,7 @@ const Frontdoor: React.FC = () => {
                     Go Back
                 </Button>
                 <Typography level="h3" sx={{ marginLeft: '16px' }}>
-                    Frontdoor
+                    Backdoor
                 </Typography>
             </HStack>
             <ImagePre
@@ -78,4 +78,4 @@ const Frontdoor: React.FC = () => {
     );
 };
 
-export default Frontdoor;
+export default Backdoor;
