@@ -6,10 +6,11 @@ interface ImagePreProps {
     onUpload: (image: File) => void;
     onSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
     selectedImage: string;
+    uploadedImages: { name: string; file: File }[];
 }
 
-const ImagePre: React.FC<ImagePreProps> = ({ onUpload, onSelect, selectedImage }) => {
-    const images = [
+const ImagePre: React.FC<ImagePreProps> = ({ onUpload, onSelect, selectedImage, uploadedImages }) => {
+    const predefinedImages = [
         { src: '/images/home_owner.png', name: 'home_owner.png' },
         { src: '/images/female.png', name: 'female.png' },
         { src: '/images/male.png', name: 'male.png' }
@@ -25,8 +26,9 @@ const ImagePre: React.FC<ImagePreProps> = ({ onUpload, onSelect, selectedImage }
                 flexDirection: 'column',
             }}
         >
-            <Box sx={{display: 'flex', gap: 2}}>
-                {images.map((image, index) => (
+            <Box sx={{ display: 'flex', gap: 2 }}>
+                {/* Render predefined images */}
+                {predefinedImages.map((image, index) => (
                     <Box
                         key={index}
                         sx={{
@@ -57,11 +59,50 @@ const ImagePre: React.FC<ImagePreProps> = ({ onUpload, onSelect, selectedImage }
                             value={image.name}
                             onChange={onSelect}
                             checked={selectedImage === image.name}
-                            style={{position: 'absolute', bottom: '10px', left: '10px'}}
+                            style={{ position: 'absolute', bottom: '10px', left: '10px' }}
                         />
                     </Box>
                 ))}
-                <ImageUpload onUpload={onUpload}/>
+
+                {/* Render uploaded images */}
+                {uploadedImages.map((uploadedImage, index) => (
+                    <Box
+                        key={index}
+                        sx={{
+                            border: '2px dashed #ccc',
+                            borderRadius: '10px',
+                            width: '150px',
+                            height: '150px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            position: 'relative',
+                            cursor: 'pointer',
+                            overflow: 'hidden',
+                        }}
+                    >
+                        <img
+                            src={URL.createObjectURL(uploadedImage.file)}
+                            alt={`Uploaded ${index}`}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                            }}
+                        />
+                        <input
+                            type="radio"
+                            name="uploadedImage"
+                            value={uploadedImage.name}
+                            onChange={onSelect}
+                            checked={selectedImage === uploadedImage.name}
+                            style={{ position: 'absolute', bottom: '10px', left: '10px' }}
+                        />
+                    </Box>
+                ))}
+
+                {/* Upload component */}
+                <ImageUpload onUpload={onUpload} />
             </Box>
         </Box>
     );

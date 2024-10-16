@@ -41,24 +41,12 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onUpload }) => {
                 onChange={handleFileChange}
                 style={{ display: 'none' }}
             />
-            {!selectedFile ? (
-                <Typography
-                    sx={{ fontSize: '50px', color: '#ccc' }}
-                    aria-hidden="true"
-                >
-                    +
-                </Typography>
-            ) : (
-                <img
-                    src={URL.createObjectURL(selectedFile)}
-                    alt="Uploaded"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
-                    }}
-                />
-            )}
+            <Typography
+                sx={{ fontSize: '50px', color: '#ccc' }}
+                aria-hidden="true"
+            >
+                +
+            </Typography>
         </Box>
     );
 };

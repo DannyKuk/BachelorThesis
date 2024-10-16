@@ -23,16 +23,10 @@ export const useImageHandlers = (navigate: any) => {
     };
 
     const handleSubmit = async () => {
-        const finalImage = image ? URL.createObjectURL(image) : selectedImage;
-
-        if (!finalImage) return;
-
         const formData = new FormData();
 
         if (image) {
             formData.append('image', image);
-        } else if (selectedImage) {
-            formData.append('selectedImage', selectedImage);
         }
 
         formData.append('threshold', threshold.toString());
@@ -48,11 +42,15 @@ export const useImageHandlers = (navigate: any) => {
             }
 
             const data = await response.json();
+            console.log('Response data:', data);
             setResult(data);
         } catch (error) {
             console.error('Error:', error);
         }
     };
+
+
+
 
     return {
         image,
