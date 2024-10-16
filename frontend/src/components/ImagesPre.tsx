@@ -13,7 +13,8 @@ const ImagePre: React.FC<ImagePreProps> = ({ onUpload, onSelect, selectedImage, 
     const predefinedImages = [
         { src: '/images/home_owner.png', name: 'home_owner.png' },
         { src: '/images/female.png', name: 'female.png' },
-        { src: '/images/male.png', name: 'male.png' }
+        { src: '/images/male.png', name: 'male.png' },
+        { src: '/images/male2.png', name: 'male2.png' }
     ];
 
     return (

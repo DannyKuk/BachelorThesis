@@ -9,6 +9,9 @@ import { Typography } from "@mui/joy";
 import ImagePre from "../components/ImagesPre";
 import { useImageHandlers } from '../components/handlers';
 
+import recognizedImage from './images/grundriss_frontdoor_open.jpg';
+import unrecognizedImage from './images/grundriss_frontdoor_closed.jpg';
+
 const Frontdoor: React.FC = () => {
     const navigate = useNavigate();
     const {
@@ -47,7 +50,26 @@ const Frontdoor: React.FC = () => {
             />
             <ThresholdSlider onThresholdChange={handleThresholdChange} />
             <Button onClick={handleSubmit}>Submit</Button>
-            {result && <ResultDisplay recognized={result.recognized} confidence={result.confidence} />}
+
+            {result && (
+                <>
+                    <ResultDisplay recognized={result.recognized} confidence={result.confidence} />
+                    <img
+                        src={result.recognized ? recognizedImage : unrecognizedImage}
+                        alt={result.recognized ? "Face Recognized" : "Face Not Recognized"}
+                        style={{ width: '600px', height: 'auto', marginTop: '20px' }}
+                    />
+                </>
+            )}
+            {!result && (
+                <>
+                    <img
+                        src={unrecognizedImage}
+                        alt={"Frontdoor"}
+                        style={{ width: '600px', height: 'auto', marginTop: '20px' }}
+                    />
+                </>
+            )}
         </div>
     );
 };
