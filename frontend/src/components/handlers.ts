@@ -45,7 +45,7 @@ export const useImageHandlers = (navigate: any) => {
         formData.append('threshold', threshold.toString());
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/recognize', {
+            const response = await fetch('http://89.22.101.98:5000/recognize', {
                 method: 'POST',
                 body: formData,
             });
