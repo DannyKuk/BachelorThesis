@@ -14,7 +14,7 @@ const ThresholdSlider: React.FC<ThresholdSliderProps> = ({ onThresholdChange }) 
     };
 
     return (
-        <div>
+        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
             <label>Threshold: {threshold.toFixed(3)}</label>
             <input
                 type="range"
@@ -24,6 +24,7 @@ const ThresholdSlider: React.FC<ThresholdSliderProps> = ({ onThresholdChange }) 
                 value={threshold}
                 onChange={handleSliderChange}
             />
+            <label>{(threshold * 100).toFixed(1)}%</label>
         </div>
     );
 };

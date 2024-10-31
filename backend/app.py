@@ -12,13 +12,17 @@ CORS(app)
 def load_model():
     model = resnet18(weights=None)
     model.fc = torch.nn.Linear(model.fc.in_features, 1)
-    model.load_state_dict(torch.load("models/trained_model.pth"))
+    model.load_state_dict(torch.load("models/trained_model.pth", weights_only=True))
     model.eval()
     return model
 
 
 model = load_model()
 
+# Root endpoint to check if the server is running
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "Backend is running!"}), 200
 
 # Endpoint for recognizing a person
 @app.route('/recognize', methods=['POST'])
@@ -44,4 +48,4 @@ def recognize():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
