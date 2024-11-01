@@ -9,3 +9,11 @@ docker-compose up --build
 
 If preferred, so the demo can also be tried out on following website:
 http://89.22.101.98/
+
+
+# AI Model Training
+The AI model is trained to the homeowner using AI generated images of a male: <br/>
+
+![Houseowner](https://github.com/DannyKuk/BachelorThesis/blob/main/backend/data/train/home_owner_1/male2.png?raw=true) <br/>
+
+Other images used for training can be found https://github.com/DannyKuk/BachelorThesis/tree/main/backend/data/train/home_owner_1
