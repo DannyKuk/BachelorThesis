@@ -6,6 +6,8 @@ The code can be easily started via docker compose:
 ```bash
 docker-compose up --build
 ```
+http://localhost/ will then open the Web GUI
+
 
 If preferred, so the demo can also be tried out on following website:
 http://89.22.101.98/
